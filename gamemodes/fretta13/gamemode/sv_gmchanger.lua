@@ -245,7 +245,7 @@ function GM:StartGamemodeVote()
 		SetGlobalBool( "InGamemodeVote", true )
 
 		if ( fretta_voting:GetBool() ) then
-			if #g_PlayableGamemodes >= 2 then
+			if table.Count( g_PlayableGamemodes ) >= 2 then
 				GAMEMODE:ClearPlayerWants()
 				BroadcastLua( "GAMEMODE:ShowGamemodeChooser()" )
 				timer.Simple( fretta_votetime:GetFloat(), function() GAMEMODE:FinishGamemodeVote() end )
