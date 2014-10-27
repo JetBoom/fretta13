@@ -40,6 +40,9 @@ surface.CreateLegacyFont( "Trebuchet MS", 16, 700, true, false, "FRETTA_SMALL" )
 
 surface.CreateLegacyFont( "Trebuchet MS", ScreenScale( 10 ), 700, true, false, "FRETTA_NOTIFY", true )
 
+surface.CreateLegacyFont( "csd", ScreenScale(30), 500, true, true, "CSKillIcons" )
+surface.CreateLegacyFont( "csd", ScreenScale(60), 500, true, true, "CSSelectIcons" )
+
 CreateClientConVar( "cl_spec_mode", "5", true, true )
 
 function GM:Initialize()
