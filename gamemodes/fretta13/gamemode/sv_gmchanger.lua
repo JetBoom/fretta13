@@ -339,12 +339,23 @@ function GM:FinishMapVote()
 	GAMEMODE.WinningMap = GAMEMODE:GetWinningMap()
 	GAMEMODE:ClearPlayerWants()
 	
-	-- Send bink bink notification
-	BroadcastLua( "GAMEMODE:ChangingGamemode( '"..GAMEMODE.WinningGamemode.."', '"..GAMEMODE.WinningMap.."' )" );
+	if self.WinningMap then
+		-- Send bink bink notification
+		BroadcastLua( "GAMEMODE:ChangingGamemode( '"..GAMEMODE.WinningGamemode.."', '"..GAMEMODE.WinningMap.."' )" );
 
-	-- Start map vote?
-	timer.Simple( 3, function() GAMEMODE:ChangeGamemode() end )
-	
+		-- Start map vote?
+		timer.Simple( 3, function() GAMEMODE:ChangeGamemode() end )
+	else
+		-- Notifies the server owner of the issue
+		ErrorNoHalt("No maps for this gamemode, forcing map to gm_construct\nPlease change this as soon as you can!\n")
+
+		--Picks gm_construct to prevent the server from halting
+		GAMEMODE.WinningMap = "gm_construct"
+		timer.Simple( 3, function() 
+			RunConsoleCommand( "gamemode", GAMEMODE.WorkOutWinningGamemode())
+			RunConsoleCommand( "changelevel", GAMEMODE.WinningMap )
+		end)
+	end
 end
 
 function GM:ChangeGamemode()
