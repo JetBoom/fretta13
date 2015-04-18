@@ -216,3 +216,15 @@ function meta:UpdateNameColor()
 	end
 
 end
+
+function meta:Frags()
+	return self:GetDTInt(14)
+end
+
+function meta:SetFrags(frags)
+	self:SetDTInt(14, frags)
+end
+
+function meta:AddFrags(frags)
+	self:SetFrags(self:GetFrags() + frags)
+end
