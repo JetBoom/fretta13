@@ -397,8 +397,8 @@ function GM:OnPlayerChangedTeam( ply, oldteam, newteam )
  
     net.Start( "fretta_teamchange" )
 		net.WriteEntity( ply )
-		net.WriteUInt( oldteam, 8 )
-		net.WriteUInt( newteam, 8 )
+		net.WriteUInt( oldteam, 16 )
+		net.WriteUInt( newteam, 16 )
     net.Broadcast()
 	
 end
