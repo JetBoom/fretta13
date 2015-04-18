@@ -111,6 +111,8 @@ end
 ---------------------------------------------------------*/
 function GM:TeamHasEnoughPlayers( teamid )
 
+	if teamid == TEAM_SPECTATOR then return false end
+
 	local PlayerCount = team.NumPlayers( teamid )
 
 	// Don't let them join a team if it has more players than another team
