@@ -226,5 +226,5 @@ function meta:SetFrags(frags)
 end
 
 function meta:AddFrags(frags)
-	self:SetFrags(self:GetFrags() + frags)
+	self:SetFrags(self:Frags() + frags)
 end
