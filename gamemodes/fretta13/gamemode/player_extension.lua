@@ -221,7 +221,9 @@ function meta:Frags()
 	return self:GetDTInt(14)
 end
 
+local OldSetFrags = meta.SetFrags
 function meta:SetFrags(frags)
+	OldSetFrags(self, frags)
 	self:SetDTInt(14, frags)
 end
 
