@@ -37,12 +37,11 @@ include( "utility.lua" )
 
 GM.ReconnectedPlayers = {}
 
-function GM:Initialize()
+util.AddNetworkString("PlayableGamemodes")
+util.AddNetworkString("RoundAddedTime")
+util.AddNetworkString("fretta_teamchange")
 
-	util.AddNetworkString("PlayableGamemodes")
-	util.AddNetworkString("RoundAddedTime")
-	util.AddNetworkString("PlayableGamemodes")
-	util.AddNetworkString("fretta_teamchange")
+function GM:Initialize()
 
 	-- If we're round based, wait 3 seconds before the first round starts
 	if ( GAMEMODE.RoundBased ) then
