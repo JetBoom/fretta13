@@ -15,7 +15,7 @@ net.Receive( "PlayableGamemodes", function() pcall(RcvPlayableGamemodes) end )
 
 local GMChooser = nil
 local function GetVoteScreen()
-
+	LocalPlayer():ConCommand("-score")
 	if ( IsValid( GMChooser ) ) then return GMChooser end
 
 	GMChooser = vgui.Create( "VoteScreen" )
