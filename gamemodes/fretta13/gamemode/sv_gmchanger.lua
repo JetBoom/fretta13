@@ -78,7 +78,7 @@ for _, gm in pairs( engine.GetGamemodes() ) do
 				for _, mapname in pairs( AllMaps ) do
 					mapname = string.lower(mapname)
 					for _, p in pairs( info.fretta_maps ) do
-						if ( string.sub( mapname, 1, #p ) == p ) then
+						if ( string.match(mapname, p) ) then
 							table.insert( g_PlayableGamemodes[ gm.name ].maps, mapname )
 						end
 					end
@@ -91,7 +91,7 @@ for _, gm in pairs( engine.GetGamemodes() ) do
 				for key, mapname in pairs( g_PlayableGamemodes[ gm.name ].maps ) do
 					mapname = string.lower(mapname)
 					for _, p in pairs( info.fretta_maps_disallow ) do
-						if ( string.sub( mapname, 1, #p ) == p ) then
+						if ( string.match(mapname, p) ) then
 							g_PlayableGamemodes[ gm.name ].maps[ key ] = nil
 						end
 					end
