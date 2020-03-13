@@ -66,7 +66,7 @@ function GM:ShowHelp()
 				pnl:SetColWide( 66 )
 				pnl:SetRowHeight( 66 )
 			
-				for name, model in pairs( list.Get( "PlayerOptionsModel" ) ) do
+				for name, model in SortedPairs( player_manager.AllValidModels() ) do
 					
 					local icon = vgui.Create( "SpawnIcon" )
 					icon.DoClick = function() surface.PlaySound( "ui/buttonclickrelease.wav" ) RunConsoleCommand( "cl_playermodel", name ) end
