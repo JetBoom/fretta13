@@ -48,6 +48,7 @@ function PANEL:Init()
 	self.List = vgui.Create( "DListView", self )
 	self.List:SetSortable( false )
 	self.List:DisableScrollbar()
+	self.List:SetMultiSelect( false )
 	
 	self.Header = vgui.Create( "TeamScoreboardHeader", self )
 
