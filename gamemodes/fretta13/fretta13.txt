@@ -2,6 +2,7 @@
 {
 	"base"				"base"
 	"title"				"Fretta Gamemode Base"
+	"category"		"pvp"
 	"menusystem"		"0"
 
 	"author_name"		"TEAM GARRY"
